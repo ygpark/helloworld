@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>558</width>
+    <height>804</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>20</y>
+     <width>434</width>
+     <height>754</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="margin">
+     <number>5</number>
+    </property>
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="margin">
+       <number>5</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Systolic</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox">
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>2147483647</number>
+        </property>
+        <property name="path" stdset="0">
+         <string>/data[at0001]/events[at0006]/data[at0003]/items[at0004]</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>mm[Hg]</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Diastolic</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox_2">
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>2147483647</number>
+        </property>
+        <property name="path" stdset="0">
+         <string>/data[at0001]/events[at0006]/data[at0003]/items[at0005]</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>mm[Hg]</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Mean Arterial Pressure</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox_3">
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>2147483647</number>
+        </property>
+        <property name="path" stdset="0">
+         <string>/data[at0001]/events[at0006]/data[at0003]/items[at1006]</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>mm[Hg]</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Pulse Pressure</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox_4">
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>2147483647</number>
+        </property>
+        <property name="path" stdset="0">
+         <string>/data[at0001]/events[at0006]/data[at0003]/items[at1007]</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_8">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>mm[Hg]</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="4" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>Comment</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="path" stdset="0">
+         <string>/data[at0001]/events[at0006]/data[at0003]/items[at0033]</string>
+        </property>
+        <property name="reg_exp" stdset="0">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="5" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QGroupBox" name="state">
+        <property name="title">
+         <string>state</string>
+        </property>
+        <property name="path" stdset="0">
+         <string>/data[at0001]/events[at0006]/state[at0007]</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="6" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>Position</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox">
+             <property name="path" stdset="0">
+              <string>/data[at0001]/events[at0006]/state[at0007]/items[at0008]</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Standing</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sitting</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Reclining</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lying</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lying with tilt to left</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="7" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>Confounding factors</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_2">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="path" stdset="0">
+              <string>/data[at0001]/events[at0006]/state[at0007]/items[at1052]</string>
+             </property>
+             <property name="reg_exp" stdset="0">
+              <string>.</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="8" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QGroupBox" name="[allow_archetype]at1030">
+             <property name="title">
+              <string>Exertion  </string>
+             </property>
+             <property name="path" stdset="0">
+              <string>/data[at0001]/events[at0006]/state[at0007]/items[at1030]</string>
+             </property>
+             <property name="occurrenceCount" stdset="0">
+              <number>0</number>
+             </property>
+             <property name="include" stdset="0">
+              <stringlist>
+               <string>/openEHR-EHR-CLUSTER\.level_of_exertion(-[a-zA-Z0-9_]+)*\.v1/</string>
+              </stringlist>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3"/>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="9" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>Sleep status</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_2">
+             <property name="path" stdset="0">
+              <string>/data[at0001]/events[at0006]/state[at0007]/items[at1043]</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Alert &amp; awake</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sleeping</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="10" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>Tilt</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinBox_5">
+             <property name="minimum">
+              <number>-90</number>
+             </property>
+             <property name="maximum">
+              <number>90</number>
+             </property>
+             <property name="path" stdset="0">
+              <string>/data[at0001]/events[at0006]/state[at0007]/items[at1005]</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_14">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Â°</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="11" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_12">
+      <item>
+       <widget class="QGroupBox" name="protocol">
+        <property name="title">
+         <string>protocol</string>
+        </property>
+        <property name="path" stdset="0">
+         <string>/protocol[at0011]</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="12" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_13">
+           <item>
+            <widget class="QLabel" name="label_15">
+             <property name="text">
+              <string>Cuff size</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_3">
+             <property name="path" stdset="0">
+              <string>/protocol[at0011]/items[at0013]</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Adult Thigh</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Large Adult</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Adult</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Small Adult</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Paediatric/Child</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Infant</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Neonatal</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="13" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_14">
+           <item>
+            <widget class="QGroupBox" name="[allow_archetype]at1033">
+             <property name="title">
+              <string>Location</string>
+             </property>
+             <property name="path" stdset="0">
+              <string>/protocol[at0011]/items[at1033]</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_5">
+              <item row="14" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_15">
+                <item>
+                 <widget class="QLabel" name="label_16">
+                  <property name="text">
+                   <string>Location of measurement</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_11">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_4">
+                  <property name="path" stdset="0">
+                   <string>/protocol[at0011]/items[at1033]/items[at0014]</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>Right arm</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Left arm</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Right thigh</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Left thigh</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Right wrist</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Left wrist</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Right ankle</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Left ankle</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Finger</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Toe</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Intra-arterial</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="15" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout_16">
+                <item>
+                 <widget class="QLabel" name="label_17">
+                  <property name="text">
+                   <string>Specific location</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_12">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit_3">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="path" stdset="0">
+                   <string>/protocol[at0011]/items[at1033]/items[at1034]</string>
+                  </property>
+                  <property name="reg_exp" stdset="0">
+                   <string>.</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="16" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_17">
+           <item>
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>Method</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_13">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_5">
+             <property name="path" stdset="0">
+              <string>/protocol[at0011]/items[at1035]</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Auscultation</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Palpation</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Machine</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Invasive</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="17" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_18">
+           <item>
+            <widget class="QLabel" name="label_19">
+             <property name="text">
+              <string>Mean Arterial Pressure Formula</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_14">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEdit_4">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="path" stdset="0">
+              <string>/protocol[at0011]/items[at1038]</string>
+             </property>
+             <property name="reg_exp" stdset="0">
+              <string>.</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="18" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_19">
+           <item>
+            <widget class="QLabel" name="label_20">
+             <property name="text">
+              <string>Diastolic endpoint</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_15">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox_6">
+             <property name="path" stdset="0">
+              <string>/protocol[at0011]/items[at1010]</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Phase IV</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Phase V</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="19" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_20">
+           <item>
+            <widget class="QGroupBox" name="[allow_archetype]at1025">
+             <property name="title">
+              <string>Device</string>
+             </property>
+             <property name="path" stdset="0">
+              <string>/protocol[at0011]/items[at1025]</string>
+             </property>
+             <property name="occurrenceCount" stdset="0">
+              <number>0</number>
+             </property>
+             <property name="include" stdset="0">
+              <stringlist>
+               <string>/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/</string>
+              </stringlist>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_6"/>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

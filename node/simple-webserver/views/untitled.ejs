@@ -1,0 +1,290 @@
+<html>
+    <head>
+        <style>
+            .dbg {
+            border:1px solid;
+            }
+            .abs {
+            position:absolute;
+            }
+            .rel {
+            position:relative;
+            }
+            .right {
+            text-align:right;
+            }
+            input[type=text] {
+            width:110px;
+            }
+        </style>
+    </head>
+
+
+    <div name="griddivdiv" style="width:434px;height:754px;left:50px;" class="dbg">
+        <input type="hidden" name="templateid" value="kakaka-3kkdkaka-ajkla" />
+        <div id="grid" name="griddiv" style="margin:5px;">
+            <div row="0" column="0">
+                <div name="horizontaldiv" class="right">
+                    <span style="float:left;">
+                        Systolic
+                    </span>
+                    <span>
+                        <input type="text" name="" value="0" minimum="0" maximum="2147483647" path="/data[at0001]/events[at0006]/data[at0003]/items[at0004]" style="text-align:right;"/>
+                    </span>
+                    <span>
+                        mm[Hg]
+                    </span>
+                </div>
+            </div>
+            <div row="1" column="0">
+                <div name="horizontaldiv_2" class="right">
+                    <span style="float:left;">
+                        Diastolic
+                    </span>
+                    <span>
+                        <input type="text" name="" value="0" minimum="0" maximum="2147483647" path="/data[at0001]/events[at0006]/data[at0003]/items[at0005]" style="text-align:right;"/>
+                    </span>
+                    <span>
+                        mm[Hg]
+                    </span>
+                </div>
+            </div>
+            <div row="2" column="0">
+                <div name="horizontaldiv_3" class="right">
+                    <span style="float:left;">
+                        Mean Arterial Pressure
+                    </span>
+                    <span>
+                        <input type="text" name="" value="0" minimum="0" maximum="2147483647" path="/data[at0001]/events[at0006]/data[at0003]/items[at1006]" style="text-align:right;"/>
+                    </span>
+                    <span>
+                        mm[Hg]
+                    </span>
+                </div>
+            </div>
+            <div row="3" column="0">
+                <div name="horizontaldiv_4" class="right">
+                    <span style="float:left;">
+                        Pulse Pressure
+                    </span>
+                    <span>
+                        <input type="text" name="" value="0" minimum="0" maximum="2147483647" path="/data[at0001]/events[at0006]/data[at0003]/items[at1007]" style="text-align:right;"/>
+                    </span>
+                    <span>
+                        mm[Hg]
+                    </span>
+                </div>
+            </div>
+            <div row="4" column="0">
+                <div name="horizontaldiv_5" class="right">
+                    <span style="float:left;">
+                        Comment
+                    </span>
+                    <span style="margin-right:68px;">
+                        <input type="text" name="" path="/data[at0001]/events[at0006]/data[at0003]/items[at0033]" style="text-align:right;"/>
+                    </span>
+                </div>
+            </div>
+            <div row="5" column="0">
+                <div class="QHBoxdiv" name="horizontaldiv_6">
+                    <fieldset path="/data[at0001]/events[at0006]/state[at0007]">
+                        <legend>state</legend>
+                        <div name="griddiv_2">
+                            <div row="6" column="0">
+                                <div name="horizontaldiv_7" class="right">
+                                    <span style="float:left;">
+                                        Position
+                                    </span>
+                                    <span>
+                                        <select name="comboBox" path="/data[at0001]/events[at0006]/state[at0007]/items[at0008]">
+                                            <option>
+                                                Standing
+                                            </option>
+                                            <option>
+                                                Sitting
+                                            </option>
+                                            <option>
+                                                Reclining
+                                            </option>
+                                            <option>
+                                                Lying
+                                            </option>
+                                            <option>
+                                                Lying with tilt to left
+                                            </option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                            <div row="7" column="0">
+                                <div name="horizontaldiv_8" class="right">
+                                    <span style="float:left;">
+                                        Confounding factors
+                                    </span>
+                                    <span>
+                                        <input type="text" name="" path="/data[at0001]/events[at0006]/state[at0007]/items[at1052]" style="text-align:right;"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div row="8" column="0">
+                                <div name="horizontaldiv_9">
+                                    <span>
+                                        <fieldset name="[allow_archetype]at1030" path="/data[at0001]/events[at0006]/state[at0007]/items[at1030]" include="/openEHR-EHR-CLUSTER\.level_of_exertion(-[a-zA-Z0-9_]+)*\.v1/" occurrenceCount="0">
+                                            <legend>Exertion</legend>
+                                        </fieldset>
+                                    </span>
+                                </div>
+                            </div>
+                            <div row="9" column="0">
+                                <div name="horizontaldiv_10" class="right">
+                                    <span style="float:left;">
+                                        Sleep status
+                                    </span>
+                                    <span>
+                                        <select name="comboBox_2" path="/data[at0001]/events[at0006]/state[at0007]/items[at1043]">
+                                            <option>Alert &amp; awake</option>
+                                            <option>Sleeping</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                            <div row="10" column="0">
+                                <div name="horizontaldiv_11" class="right">
+                                    <span style="float:left;">
+                                        Tilt
+                                    </span>
+                                    <span>
+                                        <input type="text" name="" value="0" minimum="-90" maximum="90" path="/data[at0001]/events[at0006]/state[at0007]/items[at1005]" style="text-align:right;"/>
+                                    </span>
+                                    <span>
+                                        Â°
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div row="11" column="0">
+                <div class="QHBoxdiv" name="horizontaldiv_12">
+                    <div>
+                        <fieldset name="protocol" path="/protocol[at0011]">
+                            <legend>protocol</legend>
+                            <div name="griddiv_4">
+                                <div row="12" column="0">
+                                    <div class="QHBoxdiv right" name="horizontaldiv_13">
+                                        <span style="float:left;">
+                                            Cuff size
+                                        </span>
+                                        <span>
+                                            <select class="QComboBox" name="comboBox_3" path="/protocol[at0011]/items[at0013]">
+                                                <option>Adult Thigh</option>
+                                                <option>Large Adult</option>
+                                                <option>Adult</option>
+                                                <option>Small Adult</option>
+                                                <option>Paediatric/Child</option>
+                                                <option>Infant</option>
+                                                <option>Neonatal</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div row="13" column="0">
+                                    <div class="QHBoxdiv" name="horizontaldiv_14">
+                                        <div>
+                                            <fieldset class="QGroupBox" name="[allow_archetype]at1033" path="/protocol[at0011]/items[at1033]">
+                                                <legend>Location</legend>
+                                                <div class="QGriddiv" name="griddiv_5">
+                                                    <div row="14" column="0">
+                                                        <div class="QHBoxdiv" name="horizontaldiv_15">
+                                                            <span>
+                                                                Location of measurement
+                                                            </span>
+                                                            <span>
+                                                                <select class="QComboBox" name="comboBox_4" path="/protocol[at0011]/items[at1033]/items[at0014]">
+                                                                    <option>Right arm</option>
+                                                                    <option>Left arm</option>
+                                                                    <option>Right thigh</option>
+                                                                    <option>Left thigh</option>
+                                                                    <option>Right wrist</option>
+                                                                    <option>Left wrist</option>
+                                                                    <option>Right ankle</option>
+                                                                    <option>Left ankle</option>
+                                                                    <option>Finger</option>
+                                                                    <option>Toe</option>
+                                                                    <option>Intra-arterial</option>
+                                                                </select>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div row="15" column="0">
+                                                        <div class="QHBoxdiv" name="horizontaldiv_16">
+                                                            <span>
+                                                                Specific location
+                                                            </span>
+                                                            <span>
+                                                                <input type="text" name="" value="0" path="/protocol[at0011]/items[at1033]/items[at1034]" style="text-align:right;"/>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div row="16" column="0">
+                                    <div class="QHBoxdiv right" name="horizontaldiv_17">
+                                        <span style="float:left;">
+                                            Method
+                                        </span>
+                                        <span>
+                                            <select class="QComboBox" name="comboBox_5" path="/protocol[at0011]/items[at1035]">
+                                                <option>Auscultation</option>
+                                                <option>Palpation</option>
+                                                <option>Machine</option>
+                                                <option>Invasive</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div row="17" column="0">
+                                    <div class="QHBoxdiv right" name="horizontaldiv_18">
+                                        <span style="float:left;">
+                                            Mean Arterial Pressure Formula
+                                        </span>
+                                        <span>
+                                            <input type="text" name="" value="0" path="/protocol[at0011]/items[at1038]" style="text-align:right;"/>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div row="18" column="0">
+                                    <div class="QHBoxdiv right" name="horizontaldiv_19">
+                                        <span style="float:left;">
+                                            Diastolic endpoint
+                                        </span>
+                                        <span>
+                                            <select class="QComboBox" name="comboBox_6" path="/protocol[at0011]/items[at1010]">
+                                                <option>Phase IV</option>
+                                                <option>Phase V</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div row="19" column="0">
+                                    <div class="QHBoxdiv" name="horizontaldiv_20">
+                                        <div>
+                                            <fieldset class="QGroupBox" name="[allow_archetype]at1025" occurrenceCount="0" path="/protocol[at0011]/items[at1025]" include="/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/">
+                                                <legend>Device</legend>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</html>
