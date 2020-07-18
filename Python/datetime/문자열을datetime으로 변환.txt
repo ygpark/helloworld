@@ -1,0 +1,4 @@
+import datetime
+dt=datetime.datetime.strptime(data[4]+data[5],'%Y%m%d%H%M%S')
+print(dt)
+# 2010-03-04 08:28:35
