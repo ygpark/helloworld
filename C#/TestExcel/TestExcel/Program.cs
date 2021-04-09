@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -13,16 +14,45 @@ namespace TestExcel
         {
             Excel.Application excelApp = new Excel.Application();
             Excel.Workbook workbook = excelApp.Workbooks.Open(@"D:\Repo\helloworld\C#\TestExcel\통합 문서1.xlsx");
+            Excel.Sheets sheets = workbook.Sheets;
 
-            printWorksheetsName(workbook);
-
-            foreach (Excel.Worksheet sheet in workbook.Sheets)
+            try
             {
-                printWorksheetContents(sheet);
-            }
+                printWorksheetsName(workbook);
 
-            workbook.Close(/*SaveChanges*/false);
-            excelApp.Quit();
+                foreach (Excel.Worksheet sheet in sheets)
+                {
+                    printWorksheetContents(sheet);
+                }
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            finally
+            {
+                if (sheets != null)
+                {
+                    Marshal.ReleaseComObject(sheets);
+                    sheets = null;
+                }
+
+                if (workbook != null)
+                {
+                    workbook.Close(/*SaveChanges*/false);
+                    Marshal.ReleaseComObject(workbook);
+                    workbook = null;
+                }
+
+                if (excelApp != null)
+                {
+                    excelApp.Quit();
+                    Marshal.ReleaseComObject(excelApp);
+                    excelApp = null;
+                }
+
+                GC.Collect();
+            }
         }
 
         static void printWorksheetsName(Excel.Workbook workbook)
@@ -41,23 +71,8 @@ namespace TestExcel
 
         static void printWorksheetContents(Excel.Worksheet worksheet)
         {
-            //Excel.Range usedRange = worksheet.UsedRange;
-            
-
             printWorksheetName(worksheet);
             printRange(worksheet.UsedRange);
-            //Console.WriteLine($" usedRange.RowHeight = {usedRange.Cells[1][1].value}");
-            //Console.WriteLine($" usedRange. = {usedRange.Cells[1][1].value}");
-            //foreach (worksheet.UsedRange)
-            //Console.WriteLine($" worksheet.Cells[0][0] = \"{worksheet.Cells[1][1].value}\"");
-
-            //Console.WriteLine($" worksheet.Cells[0][0] = \"{worksheet.Cells[1][1].value}\"");
-
-            //int i = 0;
-            //foreach (Excel.Worksheet sheet in worksheet.Cells[0][0])
-            //{
-            //    Console.WriteLine($"Sheet{++i} is \"{sheet.Name}\"");
-            //}
         }
 
         /// <summary>
@@ -82,22 +97,37 @@ namespace TestExcel
             }
         }
 
-        static void DeleteObject(object obj)
+        static bool CheckValidation(Excel.Range range)
         {
-            try
+            string subtitle1 = range.Rows[2].Cells[1].value;//순번
+            string subtitle2 = range.Rows[2].Cells[2].value;//앱
+            string subtitle3 = range.Rows[2].Cells[3].value;//상태
+            string subtitle4 = range.Rows[2].Cells[4].value;//종류
+            string subtitle5 = range.Rows[2].Cells[5].value;//제목
+            string subtitle6 = range.Rows[2].Cells[6].value;//내용
+
+            if (!(subtitle1 == "순번" && subtitle2 == "앱" && subtitle3 == "상태" &&
+                  subtitle4 == "종류" && subtitle5 == "제목" && subtitle6 == "내용"))
             {
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
-                obj = null;
+                return false;
             }
-            catch (Exception ex)
+            else
             {
-                obj = null;
-                Console.WriteLine("메모리 할당을 해제하는 중 문제가 발생하였습니다: " + ex.ToString());
+                return true;
             }
-            finally
+        }
+
+        static Excel.Worksheet GetWorksheetbyName(Excel.Workbook workbook, string name)
+        {
+            foreach (Excel.Worksheet sheet in workbook.Worksheets)
             {
-                GC.Collect();
+                if (sheet.Name == name)
+                {
+                    return sheet;
+                }
             }
+
+            return null;
         }
     }
 }
