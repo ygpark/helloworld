@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -11,6 +12,71 @@ namespace TestExcel
     class Program
     {
         static void Main(string[] args)
+        {
+            WriteExcel();
+        }
+
+        static void WriteExcel()
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook = excelApp.Workbooks.Add(Type.Missing);
+            Excel.Worksheet sheet = workbook.ActiveSheet;
+            Excel.Worksheet sheet2 = workbook.Worksheets.Add(After: workbook.Worksheets[workbook.Worksheets.Count]);
+
+            string newFileName = @"D:\Test write mode.xlsx";
+            sheet.Name = "new sheet1";
+
+            try
+            {
+                sheet.Cells[1, 1] = "test1,1";
+                sheet.Cells[1, 2] = "test1,2";
+                sheet.Cells[2, 1] = "test2,1";
+                sheet.Cells[2, 2] = "test2,2";
+                sheet.Cells[3, 1] = "Image\n\n\n.";
+
+                //
+                // 이미지 삽입 예시
+                // 
+                Microsoft.Office.Interop.Excel.Range oRange = (Microsoft.Office.Interop.Excel.Range)sheet.Cells[3, 1];
+                float Left = (float)((double)oRange.Left);
+                float Top = (float)((double)oRange.Top);
+                const float ImageSize = 50;
+                sheet.Shapes.AddPicture(@"D:\인증.png", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, ImageSize, ImageSize);
+
+
+                File.Delete(newFileName);
+                workbook.Close(true, newFileName);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                if (sheet != null)
+                {
+                    Marshal.ReleaseComObject(sheet);
+                    sheet = null;
+                }
+
+                if (workbook != null)
+                {
+                    Marshal.ReleaseComObject(workbook);
+                    workbook = null;
+                }
+
+                if (excelApp != null)
+                {
+                    excelApp.Quit();
+                    Marshal.ReleaseComObject(excelApp);
+                    excelApp = null;
+                }
+
+                GC.Collect();
+            }
+        }
+
+        static void ReadExcel()
         {
             Excel.Application excelApp = new Excel.Application();
             Excel.Workbook workbook = excelApp.Workbooks.Open(@"D:\Repo\helloworld\C#\TestExcel\통합 문서1.xlsx");
@@ -25,9 +91,9 @@ namespace TestExcel
                     printWorksheetContents(sheet);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                
+
             }
             finally
             {
