@@ -15,7 +15,6 @@ namespace TestCustomControl
         public Form1()
         {
             InitializeComponent();
-            //this.customControl12.VScrollBarVisible = true;
         }
     }
 }

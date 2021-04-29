@@ -29,23 +29,25 @@ namespace TestCustomControl
         /// </summary>
         private void InitializeComponent()
         {
-            this.customControl11 = new TestCustomControl.CustomControl1();
+            this.hexBox11 = new TestCustomControl.HexBox();
             this.SuspendLayout();
             // 
-            // customControl11
+            // hexBox11
             // 
-            this.customControl11.Location = new System.Drawing.Point(81, 45);
-            this.customControl11.Name = "customControl11";
-            this.customControl11.Size = new System.Drawing.Size(579, 338);
-            this.customControl11.TabIndex = 0;
-            this.customControl11.Text = "customControl11";
+            this.hexBox11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hexBox11.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.hexBox11.Location = new System.Drawing.Point(0, 0);
+            this.hexBox11.Name = "hexBox11";
+            this.hexBox11.Size = new System.Drawing.Size(698, 425);
+            this.hexBox11.TabIndex = 0;
+            this.hexBox11.Text = "hexBox11";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.customControl11);
+            this.ClientSize = new System.Drawing.Size(698, 425);
+            this.Controls.Add(this.hexBox11);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -54,7 +56,7 @@ namespace TestCustomControl
 
         #endregion
 
-        private CustomControl1 customControl11;
+        private HexBox hexBox11;
     }
 }
 
