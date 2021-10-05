@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GhostYak">
+      <HintPath>dll\GhostYak.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileSystem\Hikvision\BlockInfo.cs" />
+    <Compile Include="FileSystem\Hikvision\ChannelInfo.cs" />
+    <Compile Include="FileSystem\Hikvision\HikvisionFileSystem.cs" />
+    <Compile Include="FileSystem\Hikvision\BlockInfoHeader.cs" />
     <Compile Include="FileSystem\Hikvision\MasterSector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

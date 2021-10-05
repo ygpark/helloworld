@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileSystem.Hikvision
+namespace Recovery.FileSystem.Hikvision
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public class MasterSector
@@ -83,6 +83,7 @@ namespace FileSystem.Hikvision
         public long HIKBTREE2Offset { get { return _HIKBTREE2Offset; } }
         public int HIKBTREE2Size { get { return _HIKBTREE2Size; } }
 
+        public bool CanRead { get { return Signiture == "HIKVISION@HANGZHOU"; } }
 
         public DateTime SystemInitTime
         {
@@ -95,16 +96,10 @@ namespace FileSystem.Hikvision
         }
 
 
-
         public int Length { get { return (int)Marshal.SizeOf(typeof(MasterSector)); } }
         public MasterSector()
         {
 
-        }
-
-        public bool isValid()
-        {
-            return Signiture == "HIKVISION@HANGZHOU";
         }
 
         public override string ToString()

@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Recovery.FileSystem.Hikvision;
+using GhostYak.IO.RawDiskDrive;
 
 namespace TestHikvisionMBR
 {
@@ -23,25 +25,24 @@ namespace TestHikvisionMBR
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
             string solutionDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            string path = Path.Combine(projectDirectory, "DS-7204HQHI-F1_MasterRecord.dd");
-            byte[] array = new byte[512];
-            FileStream s = File.OpenRead(path);
+            //string path = Path.Combine(projectDirectory, "DS-7204HQHI-F1_MasterRecord.dd");
+            //string path = Path.Combine(projectDirectory, @"D:\test\DS-7204HQHI-F1_중간부터(BlockInfo계산용).dd");
+            //DS-7204HQHI-F1_중간부터(BlockInfo계산용).dd
 
-            s.Position = 512;
-            s.Read(array, 0, 512);
+            PhysicalStorage pe = new PhysicalStorage(7);
+            
+            
+            HikvisionFileSystem fs = new HikvisionFileSystem(pe.OpenRead());
 
-            var masterSector = ByteArrayToStructure<FileSystem.Hikvision.MasterSector>(array);
-            Console.WriteLine(masterSector.ToString(true));
-
-            Console.WriteLine(masterSector.isValid()); 
-        }
-
-        static T ByteArrayToStructure<T>(byte[] bytes)
-        {
-            GCHandle handle = GCHandle.Alloc(bytes, GCHandleType.Pinned);
-            T stuff = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
-            handle.Free();
-            return stuff;
+            if(fs.CanRead)
+            {
+                Console.WriteLine(fs.MasterSector.ToString(true));
+                Console.WriteLine(fs.MasterSector.CanRead);
+            }
+            else
+            {
+                Console.WriteLine("Failure");
+            }
         }
     }
 }
