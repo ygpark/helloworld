@@ -75,43 +75,45 @@ namespace Recovery.FileSystem.Hikvision
                 long block_N_StartOffset;//DataBlock 시작 위치
                 long block_N_InfoOffset;//DataBlockInfo는 DataBlock 끝에서 1MB 앞에 있다.
                 byte[] buffer = new byte[512];
-                int read;
+                int readLen;
 
                 for (long i = 0; i < end; i++)
                 {
                     block_N_StartOffset = OffsetToVideoDataArea + (i * DatablockSize);
                     //Console.WriteLine(block_N_StartOffset);
                     block_N_InfoOffset = block_N_StartOffset + DatablockSize - 1024 * 1024;/*1MB=1024*1024*/
-                    
+
                     stream.Position = block_N_InfoOffset;
                     //Console.WriteLine("{0:X}", block_N_InfoOffset);
                     //Raad BlockInfoHeader
-                    read = stream.Read(buffer, 0, 512);
-                    if (read == 0)
+                    readLen = stream.Read(buffer, 0, 512);
+                    if (readLen == 0 || readLen != 512)
                         break;
 
-                    if (read != 512)
-                        break;
 
                     var blockInfoHeader = ByteArrayToStructure<BlockInfoHeader>(buffer);
 
                     if (!blockInfoHeader.CanRead)
-                        break;
+                    {
+                        //Console.WriteLine("Can not read a header.");
+                        continue;
+                    } 
 
+                    DumpIt(block_N_InfoOffset, buffer, readLen);
 
                     //Raad BlockInfo #0
-                    read = stream.Read(buffer, 0, 512);
-                    if (read != 512)
+                    readLen = stream.Read(buffer, 0, 512);
+                    if (readLen != 512)
                         break;
                     blockInfo_0 = ByteArrayToStructure<BlockInfo>(buffer);
 
-                    if( 1 < blockInfoHeader.InfoCount )
+                    if (1 < blockInfoHeader.InfoCount)
                     {
                         //Skip BlockInfo #1...N-1
-                        for (int j = 1; j < blockInfoHeader.InfoCount -1; j++)
+                        for (int j = 1; j < blockInfoHeader.InfoCount - 1; j++)
                         {
-                            read = stream.Read(buffer, 0, 512);
-                            if (read != 512)
+                            readLen = stream.Read(buffer, 0, 512);
+                            if (readLen != 512)
                                 break;
                             // <for DEBUG>
                             //var blockInfo = ByteArrayToStructure<BlockInfo>(buffer);
@@ -119,8 +121,8 @@ namespace Recovery.FileSystem.Hikvision
                         }
 
                         //Raad BlockInfo #N
-                        read = stream.Read(buffer, 0, 512);
-                        if (read != 512)
+                        readLen = stream.Read(buffer, 0, 512);
+                        if (readLen != 512)
                             break;
                         blockInfo_N = ByteArrayToStructure<BlockInfo>(buffer);
                         //Console.WriteLine($"[N] StartOffset: {blockInfo_N.StartOffset:X}, EndOffset: 0x{blockInfo_N.StartOffset:X} ");
@@ -130,11 +132,12 @@ namespace Recovery.FileSystem.Hikvision
 
                     //TODO: 채널 지도를 만들자. List{ 채널, 시작주소, 끝주소 }
                     long endOffset = blockInfoHeader.DataBlockStartOffset + blockInfo_0.EndOffset;
-                    
 
-                    var channelInfo = new ChannelInfo() { 
-                        Channel = blockInfoHeader.Channel, 
-                        StreamStartOffset = blockInfoHeader.DataBlockStartOffset + blockInfo_0.StartOffset, 
+
+                    var channelInfo = new ChannelInfo()
+                    {
+                        Channel = blockInfoHeader.Channel,
+                        StreamStartOffset = blockInfoHeader.DataBlockStartOffset + blockInfo_0.StartOffset,
                         LastStreamStartOffset = (blockInfo_N.EndOffset != 0) ? blockInfoHeader.DataBlockStartOffset + blockInfo_N.EndOffset : blockInfoHeader.DataBlockStartOffset + blockInfo_0.EndOffset
                     };
 
@@ -161,6 +164,16 @@ namespace Recovery.FileSystem.Hikvision
 
 
             return true;
+        }
+
+        private static void DumpIt(long block_N_InfoOffset, byte[] buffer, int readLen)
+        {
+            Console.Write($"[offset: {block_N_InfoOffset}] ");
+            for (int j = 0; j < readLen; j++)
+            {
+                Console.Write($"{buffer[j]:X} ");
+            }
+            Console.WriteLine();
         }
 
         private T ByteArrayToStructure<T>(byte[] bytes)
