@@ -99,7 +99,7 @@ namespace Recovery.FileSystem.Hikvision
                         continue;
                     } 
 
-                    DumpIt(block_N_InfoOffset, buffer, readLen);
+                    //DumpIt(block_N_InfoOffset, buffer, readLen);
 
                     //Raad BlockInfo #0
                     readLen = stream.Read(buffer, 0, 512);
