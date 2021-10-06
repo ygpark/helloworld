@@ -7,7 +7,7 @@ namespace AwaitTest
 {
     public partial class Form1 : Form
     {
-        private int _a = 0;
+        private int _sum = 1;
 
         public Form1()
         {
@@ -28,7 +28,7 @@ namespace AwaitTest
         {
             for (int i = 0; i < 10; i++)
             {
-                int rst = PlusPlus(ref _a);
+                int rst = PlusPlus();
                 label1.Text = rst.ToString();
             }
         }
@@ -39,16 +39,17 @@ namespace AwaitTest
             
             for (int i = 0; i < 10; i++)
             {
-                var taskPlusPlus = Task.Run(() => PlusPlus(ref _a)); // 여기서 PlusPlus() 메소드가 실행된다.
+                var taskPlusPlus = Task.Run(() => PlusPlus()); // 여기서 PlusPlus() 메소드가 실행된다.
                 rst = await taskPlusPlus;                            // 여기서 PlusPlus() 메소드가 끝날때까지 기다린다.
                 label1.Text = rst.ToString();
             }
         }
 
-        private int PlusPlus(ref int n)
+        private int PlusPlus()
         {
+            
             Thread.Sleep(1000);
-            return ++n;
+            return _sum++;
         }
 
     }
