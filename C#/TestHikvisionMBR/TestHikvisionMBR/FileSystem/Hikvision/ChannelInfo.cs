@@ -10,11 +10,11 @@ namespace Recovery.FileSystem.Hikvision
     {
         public int Channel { get; set; }
         public long StreamStartOffset { get; set; }
-        public long LastStreamStartOffset { get; set; }
+        public long StreamEndOffset { get; set; }
 
         public override string ToString()
         {
-            return $"{{{Channel}, {StreamStartOffset}, {LastStreamStartOffset}}}";
+            return $"{{{Channel}, {StreamStartOffset}, {StreamEndOffset}}}";
         }
     }
 }

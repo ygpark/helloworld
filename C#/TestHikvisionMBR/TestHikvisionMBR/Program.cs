@@ -30,20 +30,23 @@ namespace TestHikvisionMBR
             //string path = Path.Combine(projectDirectory, @"D:\test\DS-7204HQHI-F1_중간부터(BlockInfo계산용).dd");
             //DS-7204HQHI-F1_중간부터(BlockInfo계산용).dd
 
-            PhysicalStorage pe = new PhysicalStorage(7);
+            PhysicalStorage pe = new PhysicalStorage(2);
             
             
             HikvisionFileSystem fs = new HikvisionFileSystem(pe.OpenRead());
-            DatabaseBase db = new DatabaseBase(@"D:\test\20211001_DS-7208HQHI(아이유쉘) - 복사본.db");
+            DatabaseBase db = new DatabaseBase(@"D:\test\20211001_DS-7208HQHI(아이유쉘) - rebuild7.db");
             db.Open();
             db.BeginTransaction();
+            int aff = 0;
             foreach (var item in fs.ChannelInfoMap)
             {
                 StringBuilder sql = new StringBuilder();
                 sql.Append($"UPDATE [data] SET [channel] = '{item.Channel}' ");
-                sql.Append($"    WHERE [offset] > {item.StreamStartOffset} and [offset] <= {item.LastStreamStartOffset}; ");
-                db.ExecuteNonQuery(sql.ToString());
+                sql.Append($"    WHERE [offset] >= {item.StreamStartOffset} and [offset] < {item.StreamEndOffset}; ");
+                aff += db.ExecuteNonQuery(sql.ToString());
+                
             }
+            Console.WriteLine($"Updated: {aff}");
             db.Commit();
 
             if (fs.CanRead)
@@ -55,6 +58,7 @@ namespace TestHikvisionMBR
             {
                 Console.WriteLine("Failure");
             }
+            Console.ReadKey();
         }
     }
 }
