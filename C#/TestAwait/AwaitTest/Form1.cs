@@ -52,5 +52,10 @@ namespace AwaitTest
             return _sum++;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 f = new Form1();
+            f.ShowDialog();
+        }
     }
 }
